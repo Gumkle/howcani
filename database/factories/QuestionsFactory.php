@@ -11,9 +11,12 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Question::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->email,
+        'user_id' => $faker->numberBetween(1, 100),
+        'title' => $faker->title(),
+        'description' => $faker->text(),
+        'avg_rating' => 1/$faker->numberBetween(1, 5) + $faker->numberBetween(1, 4),
+        'has_best_answer' => 0
     ];
 });

@@ -12,10 +12,12 @@
 */
 
 $factory->define(App\Comment::class, function (Faker\Generator $faker) {
+    $object = $faker->randomElement(['App\Question', 'App\Answer']);
     return [
-        'object_id' => $faker->numberBetween(1, 25),
-        'object_type' => $faker->randomElement(['App\Question', 'App\Answer']),
-        'user_id' => $faker->numberBetween(1, 100),
+        'object_id' => $object::inRandomOrder()->first()->id,
+        'object_type' => $object,
+        'user_id' => \App\User::inRandomOrder()->first()->id,
         'content' => $faker->text(),
+        'total_rating' => $faker->numberBetween(-100, 100)
     ];
 });

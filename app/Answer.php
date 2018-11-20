@@ -26,4 +26,9 @@ class Answer extends Model
     {
         return $this->morphMany('App\Comment', 'object');
     }
+
+    public function ratings()
+    {
+        return $this->morphMany('App\Rating', 'object');
+    }
 }

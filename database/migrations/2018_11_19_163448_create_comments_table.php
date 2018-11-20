@@ -18,6 +18,7 @@ class CreateCommentsTable extends Migration
             $table->morphs('object');
             $table->integer('user_id');
             $table->text('content');
+            $table->integer('total_rating');
             $table->softDeletes();
             $table->timestamps();
         });

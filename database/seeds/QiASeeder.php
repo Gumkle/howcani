@@ -11,7 +11,7 @@ class QiASeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Answer::class, 75)->create();
         factory(App\Question::class, 25)->create();
+        factory(App\Answer::class, 75)->create();
     }
 }

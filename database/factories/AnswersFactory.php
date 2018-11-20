@@ -13,9 +13,9 @@
 
 $factory->define(App\Answer::class, function (Faker\Generator $faker) {
     return [
-        'user_id' => $faker->numberBetween(1, 100),
-        'question_id' => $faker->numberBetween(1, 25),
-        'avg_rating' => 1/$faker->numberBetween(1, 5) + $faker->numberBetween(1, 4),
+        'user_id' => \App\User::inRandomOrder()->first()->id,
+        'question_id' => \App\Question::inRandomOrder()->first()->id,
+        'total_rating' => $faker->numberBetween(-100, 100),
         'content' => $faker->text(),
         'is_best' => 0,
     ];

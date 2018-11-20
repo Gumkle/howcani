@@ -6,10 +6,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Comment extends Model
+class Rating extends Model
 {
-    use SoftDeletes;
-    protected $dates=['deleted_at'];
 
     public function object(){
         return $this->morphTo();
@@ -17,10 +15,5 @@ class Comment extends Model
 
     public function user(){
         return $this->belongsTo('App\User');
-    }
-
-    public function ratings()
-    {
-        return $this->morphMany('App\Rating', 'object');
     }
 }

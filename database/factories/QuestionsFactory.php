@@ -13,10 +13,10 @@
 
 $factory->define(App\Question::class, function (Faker\Generator $faker) {
     return [
-        'user_id' => $faker->numberBetween(1, 100),
+        'user_id' => \App\User::inRandomOrder()->first()->id,
         'title' => $faker->title(),
         'description' => $faker->text(),
-        'avg_rating' => 1/$faker->numberBetween(1, 5) + $faker->numberBetween(1, 4),
+        'total_rating' => $faker->numberBetween(-100, 100),
         'has_best_answer' => 0
     ];
 });

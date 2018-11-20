@@ -18,7 +18,7 @@ class CreateQuestionsTable extends Migration
             $table->integer('user_id');
             $table->string('title');
             $table->text('description');
-            $table->decimal('avg_rating');
+            $table->integer('total_rating');
             $table->boolean('has_best_answer');
             $table->softDeletes();
             $table->timestamps();

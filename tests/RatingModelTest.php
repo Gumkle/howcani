@@ -24,7 +24,6 @@ class RatingModelTest extends TestCase
         $changedRatingArray = $rating->toArray();
 
         // check test case
-
         if($newRatingData['rating'] == 1){
 
             $this->assertTrue(
@@ -35,6 +34,7 @@ class RatingModelTest extends TestCase
                 $oldRatedObjectRate -1 == $newRatedObjectRate
             );
         }
+
         foreach($newRatingData as $data){
             $this->assertTrue(in_array($data, $changedRatingArray));
         }

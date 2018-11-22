@@ -49,4 +49,27 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     {
         return $this->hasMany('App\Rating');
     }
+
+    public function fillWithData(Array $data)
+    {
+        if(isset($data['email']))
+            $this->email = $data['email'];
+
+        if(isset($data['password']))
+            $this->password = app('hash')->make($data['password']);
+
+        if(isset($data['is_admin']))
+            $this->is_admin = $data['is_admin'];
+
+        $this->save();
+
+        return $this;
+    }
+
+    public static function createObject(Array $data)
+    {
+        $object = new self();
+        $object->fillWithData($data);
+        return $object;
+    }
 }

@@ -3,6 +3,7 @@
 namespace App;
 
 
+use function Couchbase\defaultDecoder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -34,6 +35,7 @@ class Question extends Model
 
     public function fillWithData(Array $data)
     {
+
         if(isset($data['user_id']))
             $this->user_id = $data['user_id'];
 

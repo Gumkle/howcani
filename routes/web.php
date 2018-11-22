@@ -38,4 +38,10 @@ $router->group(['prefix' => 'api'], function () use ($router) {
         $router->delete('/{rating}', 'RatingController@destroy');
     });
 
+    $router->group(['prefix' => 'user'], function() use ($router) {
+        $router->post('/', 'UserController@store');
+        $router->get('/{user}', 'UserController@show');
+        $router->patch('/{user}', 'UserController@update');
+        $router->delete('/{user}', 'UserController@destroy');
+    });
 });

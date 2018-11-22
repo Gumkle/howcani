@@ -17,8 +17,8 @@ class CreateAnswersTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('question_id');
-            $table->integer('total_rating');
-            $table->boolean('is_best');
+            $table->integer('total_rating')->default(0);
+            $table->boolean('is_best')->default(0);
             $table->text('content');
             $table->softDeletes();
             $table->timestamps();

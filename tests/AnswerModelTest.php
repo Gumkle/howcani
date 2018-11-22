@@ -25,7 +25,7 @@ class AnswerModelTest extends TestCase
         }
     }
 
-    public function testAnswerCreating()
+    public function testCreateObject()
     {
         $data = factory(\App\Answer::class, 1)->make()->toArray()[0];
         $answer = \App\Answer::createObject($data);
@@ -33,7 +33,7 @@ class AnswerModelTest extends TestCase
         $this->assertTrue(isset($answer->id));
     }
 
-    public function testCreateObject()
+    public function testMakeBest()
     {
         $question = factory(\App\Question::class)->create();
         $answers = factory(\App\Answer::class, 5)->create()->each(function ($answer) use ($question) {

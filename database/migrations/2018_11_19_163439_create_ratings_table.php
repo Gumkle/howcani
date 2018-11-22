@@ -17,7 +17,7 @@ class CreateRatingsTable extends Migration
             $table->increments('id');
             $table->morphs('object');
             $table->integer('user_id');
-            $table->integer('total_rating');
+            $table->boolean('rating');
             $table->timestamps();
         });
     }

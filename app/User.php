@@ -10,6 +10,7 @@ use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 
 class User extends Model implements AuthenticatableContract, AuthorizableContract
 {
+    // TODO password changing tests
     use Authenticatable, Authorizable;
 
     /**

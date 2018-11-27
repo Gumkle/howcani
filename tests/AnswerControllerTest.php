@@ -5,5 +5,5 @@ use Laravel\Lumen\Testing\DatabaseTransactions;
 
 class AnswerControllerTest extends TestCase
 {
-
+    
 }

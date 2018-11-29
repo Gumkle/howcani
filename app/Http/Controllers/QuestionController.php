@@ -6,7 +6,7 @@ class QuestionController extends Controller
 {
     public function index()
     {
-        
+        return "Adsf";
     }
 
     public function show()

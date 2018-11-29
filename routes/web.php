@@ -11,37 +11,35 @@
 |
 */
 
-$router->group(['prefix' => 'api'], function () use ($router) {
 
-    $router->group(['prefix' => 'question'], function() use ($router) {
-        $router->get('/', 'QuestionController@index');
-        $router->get('/{question}', 'QuestionController@show');
-        $router->post('/', 'QuestionController@store');
-        $router->patch('/{question}', 'QuestionController@update');
-        $router->delete('/{question}', 'QuestionController@destroy');
-    });
+$app->group(['prefix' => 'question'], function() use ($app) {
+    $app->get('/', 'QuestionController@index');
+    $app->get('/{question}', 'QuestionController@show');
+    $app->post('/', 'QuestionController@store');
+    $app->patch('/{question}', 'QuestionController@update');
+    $app->delete('/{question}', 'QuestionController@destroy');
+});
 
-    $router->group(['prefix' => 'answer'], function() use ($router) {
-        $router->post('/', 'AnswerController@store');
-        $router->patch('/{answer}', 'AnswerController@update');
-        $router->delete('/{answer}', 'AnswerController@destroy');
-    });
+$app->group(['prefix' => 'answer'], function() use ($app) {
+    $app->post('/', 'AnswerController@store');
+    $app->patch('/{answer}', 'AnswerController@update');
+    $app->delete('/{answer}', 'AnswerController@destroy');
+});
 
-    $router->group(['prefix' => 'comment'], function() use ($router) {
-        $router->post('/', 'CommentController@store');
-        $router->patch('/{comment}', 'CommentController@update');
-        $router->delete('/{comment}', 'CommentController@destroy');
-    });
+$app->group(['prefix' => 'comment'], function() use ($app) {
+    $app->post('/', 'CommentController@store');
+    $app->patch('/{comment}', 'CommentController@update');
+    $app->delete('/{comment}', 'CommentController@destroy');
+});
 
-    $router->group(['prefix' => 'rating'], function() use ($router) {
-        $router->post('/', 'RatingController@store');
-        $router->delete('/{rating}', 'RatingController@destroy');
-    });
+$app->group(['prefix' => 'rating'], function() use ($app) {
+    $app->post('/', 'RatingController@store');
+    $app->delete('/{rating}', 'RatingController@destroy');
+});
 
-    $router->group(['prefix' => 'user'], function() use ($router) {
-        $router->post('/', 'UserController@store');
-        $router->get('/{user}', 'UserController@show');
-        $router->patch('/{user}', 'UserController@update');
-        $router->delete('/{user}', 'UserController@destroy');
-    });
+$app->group(['prefix' => 'user'], function() use ($app) {
+    $app->post('/', 'UserController@store');
+    $app->get('/{user}', 'UserController@show');
+    $app->patch('/{user}', 'UserController@update');
+    $app->delete('/{user}', 'UserController@destroy');
 });
